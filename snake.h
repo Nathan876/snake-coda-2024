@@ -17,11 +17,20 @@ struct s_pos {
     pos *next;
 };
 
+typedef struct fruits fruits;
+
+struct fruits {
+	int pos_x;
+	int pos_y;
+	int type;
+	pos *next;
+};
+
 pos *create_list(int x, int y);
-void sort_in_list(pos **list, int x, int y);
-int mouvement(char **board, char coup, pos *snake, pos *box);
+int isWinning(char **list);
+int isCollectingSpecial(char **board, fruits *fruit);
+int mouvement(char **board, char coup, pos *snake, fruits *fruit);
 void add_to_list(pos **list, int x, int y);
-void insert_after(pos **link, int x, int y);
 void delete_list(pos **list);
 
 #endif
